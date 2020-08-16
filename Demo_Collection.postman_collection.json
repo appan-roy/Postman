@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "00fc5d54-5de6-4403-8ec7-81b7922fb64f",
+		"name": "Demo_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Demo Folder",
+			"item": [
+				{
+					"name": "GetUsers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "01f65f44-a8ac-42ab-9a3f-e2427f91f623",
+								"exec": [
+									"console.log(\"I am inside REQUEST Pre-Request Scripts section\")"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de8ef63d-d57b-486d-b962-d5a1b6325bd0",
+								"exec": [
+									"console.log(\"I am inside REQUEST Tests section\")\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"console.log(\"This is a log\")\r",
+									"console.info(\"This is an info\")\r",
+									"console.warn(\"This is a warning\")\r",
+									"console.error(\"This is an error\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page=2",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ee781737-fe0e-4b43-b094-279659fa183a",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"I am inside FOLDER Pre-Request Scripts section\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a6b9b15-77c1-4bdf-9b05-a1254ccf0cd1",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"I am inside FOLDER Tests section\")"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c3ccad96-0848-4bd8-a5d4-b223a996d40f",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"I am inside COLLECTION Pre-Request Scripts section\")"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "43fdcef4-c5df-4a47-ad91-641f6093f823",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"I am inside COLLECTION Tests section\")"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
